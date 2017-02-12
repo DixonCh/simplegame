@@ -20,3 +20,7 @@ six==1.10.0
 
 ### How to play
 Download mac app or windows exe build from downloads and follow instruction on screen.
+
+
+![Alt text](screenshot.png?raw=true "Game Play")
+

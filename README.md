@@ -1,8 +1,8 @@
 # simplegame
-simple tank game 
+## simple tank game 
 
 
-Project dependencies:
+### Project dependencies:
 
 altgraph==0.13
 
@@ -18,3 +18,5 @@ pyparsing==2.1.10
 
 six==1.10.0
 
+### How to play
+Download mac app or windows exe build from downloads and follow instruction on screen.

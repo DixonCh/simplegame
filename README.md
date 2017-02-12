@@ -1,5 +1,6 @@
 # simplegame
-## simple tank game 
+
+![Alt text](screenshot.png?raw=true "Game Play")
 
 
 ### Project dependencies:
@@ -24,7 +25,3 @@ I have only one level for this game and level could be modified by modifying the
 
 ### How to play
 Download mac app or windows exe build from downloads and follow instruction on screen.
-
-
-![Alt text](screenshot.png?raw=true "Game Play")
-

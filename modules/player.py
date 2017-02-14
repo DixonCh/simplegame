@@ -28,9 +28,7 @@ class Player(pygame.sprite.Sprite):
         elif keys[pygame.K_LEFT]:
             if self.rect.x > 0:
                 self.rect.x = self.rect.x - 10
-        #else:
-           # pos = pygame.mouse.get_pos()
-           # print pos
-
-            #if pos[0] < SCREEN_W and pos[1] < SCREEN_W:
-            #    self.rect.x = pos[0]
+        elif pygame.mouse.get_focused():
+           pos = pygame.mouse.get_pos()
+           if pos[0] < SCREEN_W - 75 and pos[0] > 0:
+               self.rect.x = pos[0]

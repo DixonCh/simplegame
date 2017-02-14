@@ -16,19 +16,23 @@ PAKTC ="Press any key to continue..."
 INST = "Use spacebar, to fire and arrow keys to move tank."
 
 #images
-BACKGROUND="resources/city_bg.jpg"
-TARGET = "resources/blocks.jpg"
-BULLET = "resources/bullet.png"
-TANK = "resources/tank.png"
-EXPLOD = "resources/exploded.png"
+BACKGROUND="city_bg.jpg"
+TARGET = "blocks.jpg"
+BULLET = "bullet.png"
+TANK = "tank.png"
+EXPLOD = "exploded.png"
 
 
 #sounds
-EXPLODE = "resources/explode.wav"
-FIRE = "resources/fire.wav"
-BGMUSIC = "resources/bg.ogg"
+EXPLODE = "explode.wav"
+FIRE = "fire.wav"
+BGMUSIC = "bg.ogg"
 
 
 #level one
-LEVEL1 = "resources/levelone.txt"
+LEVEL1 = "levelone.txt"
 
+#font
+FONT = "ALGER.TTF"
+FONT1 = "CALIFB.TTF"
+FONT2 = "BASKVILL.TTF"

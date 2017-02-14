@@ -5,6 +5,8 @@ from modules.target import *
 from helper.readLevel import *
 from modules.player import *
 from pygame import *
+import os, sys
+
 
 
 class Main:
@@ -13,8 +15,8 @@ class Main:
 
         self.screen = mscreen
         self.score = 0
-        self.fire_sound = pygame.mixer.Sound(FIRE)
-        self.explode_sound = pygame.mixer.Sound(EXPLODE)
+        self.fire_sound = pygame.mixer.Sound(self.resource_path(os.path.join('resources',FIRE)))
+        self.explode_sound = pygame.mixer.Sound(self.resource_path(os.path.join('resources',EXPLODE)))
 
         self.all_sprites_list = pygame.sprite.Group()
         self.block_list = pygame.sprite.Group()
@@ -27,6 +29,11 @@ class Main:
         self.draw_blocks = level_data.get_level_data()
 
         self.setup_level()
+
+    def resource_path(self, relative):
+        if hasattr(sys, "_MEIPASS"):
+            return os.path.join(sys._MEIPASS, relative)
+        return os.path.join(relative)
 
     def setup_level(self):
         for new_blocks in self.draw_blocks:
@@ -120,11 +127,16 @@ class Main:
 
 if __name__ == '__main__':
 
+    def resource_path(relative):
+        if hasattr(sys, "_MEIPASS"):
+            return os.path.join(sys._MEIPASS, relative)
+        return os.path.join(relative)
+
     pygame.mixer.init()
     pygame.init()
     screen = pygame.display.set_mode([SCREEN_W, SCREEN_H])
-    background_image = pygame.image.load(BACKGROUND)
-    bg_sound = pygame.mixer.Sound(BGMUSIC)
+    background_image = pygame.image.load(resource_path(os.path.join('resources', BACKGROUND)))
+    bg_sound = pygame.mixer.Sound(resource_path(os.path.join('resources', BGMUSIC)))
     pygame.display.set_caption(TITEL_TEXT)
 
     game = Main(screen)
@@ -132,9 +144,9 @@ if __name__ == '__main__':
     clock = pygame.time.Clock()
 
     display_instructions = True
-    font = pygame.font.Font(None, 36)
-    font1 = pygame.font.Font(None, 24)
-    font2 = pygame.font.Font(None, 18)
+    font = pygame.font.Font(resource_path(os.path.join('resources', FONT)), 36)
+    font1 = pygame.font.Font(resource_path(os.path.join('resources', FONT1)), 24)
+    font2 = pygame.font.Font(resource_path(os.path.join('resources', FONT2)), 18)
 
     restart = False
     textscore = font.render("", True, BLACK)
@@ -147,6 +159,7 @@ if __name__ == '__main__':
             elif event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
                 display_instructions = False
                 bg_sound.play(loops=-1)
+                pygame.mouse.set_visible(False)
 
         # Set the screen background
         game.screen.fill(BLACK)
@@ -207,4 +220,3 @@ if __name__ == '__main__':
         clock.tick(30)
 
     pygame.quit()
-

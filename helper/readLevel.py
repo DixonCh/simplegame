@@ -1,3 +1,5 @@
+import os, sys
+
 class ReadLevel():
 
     def __init__(self, level):
@@ -7,7 +9,7 @@ class ReadLevel():
         self.data_list = []
 
     def get_level_data(self):
-        linefile = open(self.level, "r")
+        linefile = open(self.resource_path(os.path.join('resources',self.level)), "r")
         for line in linefile:
             self.x = 0
             for char in line:
@@ -21,3 +23,9 @@ class ReadLevel():
             self.y += 32
 
         return self.data_list
+
+
+    def resource_path(self, relative):
+        if hasattr(sys, "_MEIPASS"):
+            return os.path.join(sys._MEIPASS, relative)
+        return os.path.join(relative)
